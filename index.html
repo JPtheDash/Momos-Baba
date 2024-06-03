@@ -45,7 +45,54 @@
 <body>
     <div class="container">
         <h1>Momos Baba</h1>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <?php
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\Exception;
+
+        require 'vendor/autoload.php'; // Path to PHPMailer autoload.php
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name = $_POST['name'];
+            $place = $_POST['place'];
+            $phone = $_POST['phone'];
+            $service = $_POST['service'];
+            $user_email = $_POST['email'];
+
+            // Email details
+            $to = "your-email@example.com"; // Change this to your email address
+            $subject = "New Momos Baba Form Submission";
+            $message = "Name: $name\nPlace: $place\nPhone: $phone\nService: $service\nUser Email: $user_email";
+
+            // PHPMailer configuration
+            $mail = new PHPMailer(true);
+            try {
+                //Server settings
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'your-gmail@gmail.com'; // Your Gmail email address
+                $mail->Password = 'your-gmail-password'; // Your Gmail password
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
+
+                //Recipients
+                $mail->setFrom('your-gmail@gmail.com', 'Momos Baba'); // Your Gmail email address and name
+                $mail->addAddress($to);
+
+                //Content
+                $mail->isHTML(false);
+                $mail->Subject = $subject;
+                $mail->Body = $message;
+
+                $mail->send();
+                
+                echo "<p>Thank you for your submission!</p>";
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+        }
+        ?>
+        <form method="post">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
