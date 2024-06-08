@@ -1,72 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="or">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momos Baba</title>
+    <title>Sri Damodara Jyotishalaya</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        /* Your existing CSS styles */
+        .language-dropdown {
+            position: absolute;
+            top: 15px;
+            right: 20px; /* Adjusted right position */
         }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            margin-top: 20px;
-        }
-        label, input, select {
-            display: block;
-            margin-bottom: 10px;
-        }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
+        .language-dropdown select {
+            padding: 5px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        input[type="submit"]:hover {
-            background: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Momos Baba</h1>
-        <form action="https://formspree.io/f/xvoejqgr" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="place">Place:</label>
-            <input type="text" id="place" name="place" required>
-
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
-
-            <label for="service">Service:</label>
-            <select id="service" name="service" required>
-                <option value="1">Franchise</option>
-                <option value="2">Stall</option>
-                <option value="3">Wholesale Momo and Chinese</option>
+    <div class="sub-heading">** ଓଁ ଶ୍ରୀ ଶୁଭମସ୍ତୁ **</div>
+    <header>
+        <!-- Header content -->
+        <h1><span class="odia-letter">ଶ୍ରୀ ଦାମୋଦର ଜ୍ୟୋତିଷାଳୟ</span></h1>
+        <h2 class="english-letter">Sri Damodara Jyotishalaya</h2>
+        <nav>
+            <ul>
+                <li><a href="#janma_kundali">ଜନ୍ମ କୁଣ୍ଡଳୀ</a></li>
+                <li><a href="#prajapati_melaka">ପ୍ରଜାପତି ମେଳକ</a></li>
+                <li><a href="https://yourlivewebsite.com" target="_blank">ଜ୍ୟୋତିଷଙ୍କ ସହ ସମ୍ବାଦ</a></li>
+                <li><a href="#maa_tara_tarini_panjika">ମା ତାରା ତାରିଣୀ ପଞ୍ଜିକା</a></li>
+                <li><a href="#muhurtha">ମୁହୁର୍ତ</a></li>
+            </ul>
+        </nav>
+        <div class="language-dropdown">
+            <select id="language-select" onchange="changeLanguage()">
+                <option value="or">Odia</option>
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="bn">Bengali</option>
+                <option value="te">Telugu</option>
+                <option value="kn">Kannada</option>
             </select>
-
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+        </div>
+    </header>
+    <img src="babb0a4032d39649a6dec6ff7a753c0f.jpg" alt="Lord Jagannath" class="jagannath-image">
+    <main>
+        <!-- Main content sections -->
+    </main>
+    <footer>
+    </footer>
+    <script>
+        // JavaScript to toggle expandable sections
+        document.addEventListener("DOMContentLoaded", function() {
+            var expandableSections = document.querySelectorAll('.expandable-section');
+            expandableSections.forEach(function(section) {
+                var heading = section.querySelector('h2');
+                var content = section.querySelector('.expandable-content');
+                heading.addEventListener('click', function() {
+                    content.classList.toggle('expanded');
+                    content.style.display = content.style.display === "block" ? "none" : "block";
+                });
+            });
+        });
+    </script>
 </body>
 </html>
