@@ -1,61 +1,141 @@
 <!DOCTYPE html>
-<html lang="or">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Damodara Jyotishalaya</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <title>AdalBadal - The Old Barter</title>
     <style>
-        /* Your existing CSS styles */
-        .language-dropdown {
-            position: absolute;
-            top: 15px;
-            right: 20px; /* Adjusted right position */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        .language-dropdown select {
-            padding: 5px;
-            font-size: 16px;
-            background-color: #333;
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
             color: #fff;
-            border: none;
-            border-radius: 5px;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #0779e4 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        .main-content {
+            padding: 20px;
+            background: #fff;
+            margin-top: 20px;
+        }
+        .post-ad, .view-ads {
+            margin-bottom: 20px;
+        }
+        .ad-item {
+            background: #e2e2e2;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="sub-heading">** ଓଁ ଶ୍ରୀ ଶୁଭମସ୍ତୁ **</div>
     <header>
-        <!-- Header content -->
-        <h1><span class="odia-letter">ଶ୍ରୀ ଦାମୋଦର ଜ୍ୟୋତିଷାଳୟ</span></h1>
-        <h2 class="english-letter">Sri Damodara Jyotishalaya</h2>
-        <nav>
-            <ul>
-                <li><a href="#janma_kundali">ଜନ୍ମ କୁଣ୍ଡଳୀ</a></li>
-                <li><a href="#prajapati_melaka">ପ୍ରଜାପତି ମେଳକ</a></li>
-                <li><a href="https://yourlivewebsite.com" target="_blank">ଜ୍ୟୋତିଷଙ୍କ ସହ ସମ୍ବାଦ</a></li>
-                <li><a href="#maa_tara_tarini_panjika">ମା ତାରା ତାରିଣୀ ପଞ୍ଜିକା</a></li>
-                <li><a href="#muhurtha">ମୁହୁର୍ତ</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div id="branding">
+                <h1>AdalBadal - The Old Barter</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#post-ad">Post Ad</a></li>
+                    <li><a href="#view-ads">View Ads</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <img src="babb0a4032d39649a6dec6ff7a753c0f.jpg" alt="Lord Jagannath" class="jagannath-image">
-    <main>
-        <!-- Main content sections -->
-    </main>
+
+    <div class="container main-content">
+        <section id="post-ad" class="post-ad">
+            <h2>Post an Ad</h2>
+            <form id="postAdForm">
+                <label for="itemOffered">Item Offered:</label>
+                <input type="text" id="itemOffered" name="itemOffered" required>
+                <br><br>
+                <label for="itemWanted">Item Wanted:</label>
+                <input type="text" id="itemWanted" name="itemWanted" required>
+                <br><br>
+                <label for="contact">Contact Information:</label>
+                <input type="text" id="contact" name="contact" required>
+                <br><br>
+                <input type="submit" value="Post Ad">
+            </form>
+        </section>
+
+        <section id="view-ads" class="view-ads">
+            <h2>View Ads</h2>
+            <div id="adsContainer">
+                <!-- Ads will be dynamically added here -->
+            </div>
+        </section>
+    </div>
+
     <footer>
+        <p>AdalBadal &copy; 2024</p>
     </footer>
+
     <script>
-        // JavaScript to toggle expandable sections
-        document.addEventListener("DOMContentLoaded", function() {
-            var expandableSections = document.querySelectorAll('.expandable-section');
-            expandableSections.forEach(function(section) {
-                var heading = section.querySelector('h2');
-                var content = section.querySelector('.expandable-content');
-                heading.addEventListener('click', function() {
-                    content.classList.toggle('expanded');
-                    content.style.display = content.style.display === "block" ? "none" : "block";
-                });
-            });
+        const postAdForm = document.getElementById('postAdForm');
+        const adsContainer = document.getElementById('adsContainer');
+
+        postAdForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const itemOffered = document.getElementById('itemOffered').value;
+            const itemWanted = document.getElementById('itemWanted').value;
+            const contact = document.getElementById('contact').value;
+
+            const adItem = document.createElement('div');
+            adItem.className = 'ad-item';
+            adItem.innerHTML = `
+                <p><strong>Item Offered:</strong> ${itemOffered}</p>
+                <p><strong>Item Wanted:</strong> ${itemWanted}</p>
+                <p><strong>Contact:</strong> ${contact}</p>
+            `;
+
+            adsContainer.appendChild(adItem);
+
+            postAdForm.reset();
         });
     </script>
 </body>
